@@ -29,9 +29,9 @@ export default function AboutPage() {
           <div className="sh center" style={{ flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <div><div className="s-label">The numbers</div><h2 className="s-title">MedConnect by the numbers</h2></div>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 2, background: 'var(--border)', borderRadius: 'var(--r-lg)', overflow: 'hidden', marginTop: 48 }}>
+          <div className="about-stats-grid" style={{ background: 'var(--border)', borderRadius: 'var(--r-lg)', overflow: 'hidden', marginTop: 48 }}>
             {[['12K+', 'Verified Doctors'], ['500K+', 'Monthly Patients'], ['50+', 'Cities Covered'], ['4.8★', 'Average Rating']].map(([num, label]) => (
-              <div key={label} style={{ background: 'var(--white)', padding: 36, textAlign: 'center' }}>
+              <div key={label} className="about-stats-card" style={{ background: 'var(--white)', textAlign: 'center' }}>
                 <div style={{ fontFamily: "'Syne',sans-serif", fontSize: '2.5rem', fontWeight: 800, color: 'var(--teal)' }}>{num}</div>
                 <div style={{ fontSize: '.85rem', color: 'var(--muted)', marginTop: 6 }}>{label}</div>
               </div>

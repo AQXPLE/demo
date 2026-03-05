@@ -65,7 +65,7 @@ export default function ProfilePage() {
 
       <div className="prof-tabs" style={{ maxWidth: 'none' }}>
         <div className="container" style={{ padding: '0 5%' }}>
-          <div style={{ display: 'flex', gap: 4 }}>
+          <div className="profile-tabs-wrap">
             {TABS.map(({ id, label }) => (
               <button key={id} type="button" className={`tab-btn ${activeTab === id ? 'on' : ''}`} onClick={() => setActiveTab(id)}>{label}</button>
             ))}
@@ -73,7 +73,7 @@ export default function ProfilePage() {
         </div>
       </div>
 
-      <div className="container" style={{ marginTop: 40, marginBottom: 80, padding: '0 5%', display: 'grid', gridTemplateColumns: '1fr 300px', gap: 36 }} id="prof-layout">
+      <div className="container prof-layout" style={{ marginTop: 40, marginBottom: 80, padding: '0 5%' }}>
         <div>
           {activeTab === 'overview' && (
             <div id="tab-overview">
@@ -105,11 +105,11 @@ export default function ProfilePage() {
               <div className="prof-section">
                 <h3>Hospital Affiliations</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-                  <div style={{ padding: 14, background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 'var(--r-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ padding: 14, background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 'var(--r-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
                     <div><div style={{ fontWeight: 600, fontSize: '.875rem' }}>Aga Khan University Hospital</div><div style={{ fontSize: '.78rem', color: 'var(--muted)' }}>Stadium Road, Karachi — Mon, Wed, Fri</div></div>
                     <span className="badge badge-teal">Primary</span>
                   </div>
-                  <div style={{ padding: 14, background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 'var(--r-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ padding: 14, background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 'var(--r-sm)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 }}>
                     <div><div style={{ fontWeight: 600, fontSize: '.875rem' }}>Tabba Heart Institute</div><div style={{ fontSize: '.78rem', color: 'var(--muted)' }}>KDA Scheme 1, Karachi — Tue, Thu</div></div>
                     <span className="badge badge-blue">Secondary</span>
                   </div>
@@ -171,13 +171,13 @@ export default function ProfilePage() {
             <div id="tab-book">
               <div className="prof-section">
                 <h3>Select Date & Time</h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7,1fr)', gap: 8, marginBottom: 24 }}>
+                <div className="profile-date-grid">
                   {dateGrid.map(({ day, date, isTomorrow }) => (
                     <div key={date} className="slot" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, padding: '8px 4px' }}><span style={{ fontSize: '.65rem', color: 'var(--muted)' }}>{day}</span><span style={{ fontSize: '.9rem', fontWeight: 600 }}>{date}</span></div>
                   ))}
                 </div>
                 <h3 style={{ marginBottom: 14 }}>Available Slots — Tomorrow</h3>
-                <div className="slots-grid" style={{ gridTemplateColumns: 'repeat(4,1fr)' }}>
+                <div className="slots-grid profile-book-slots">
                   {SLOTS.map((slot) => (
                     <div key={slot} className={`slot ${selectedSlot === slot ? 'on' : ''} ${TAKEN.includes(slot) ? 'taken' : ''}`} onClick={() => handleSlotClick(slot, setSelectedSlot)} role="button" tabIndex={0}>{slot}</div>
                   ))}

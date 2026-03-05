@@ -482,9 +482,24 @@ footer{background:var(--dark);padding:64px 5% 32px}
 .sh-right:hover{gap:10px}
 .sh-right::after{content:'→';transition:.2s}
 
+
+.profile-tabs-wrap{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px}
+.profile-tabs-wrap::-webkit-scrollbar{height:0}
+.prof-layout{display:grid;grid-template-columns:1fr 300px;gap:36px}
+.profile-date-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:24px}
+.profile-book-slots{grid-template-columns:repeat(4,1fr)}
+.about-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.about-stats-card{padding:36px}
+
 /* ══════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════ */
+@media(max-width:1100px){
+  .nav-inner{gap:20px}
+  .nav-link{padding:8px 12px;font-size:.83rem}
+  .nav-actions .btn{padding:8px 12px;font-size:.76rem}
+  .filter-sort{margin-left:0}
+}
 @media(max-width:1024px){
   .spec-grid{grid-template-columns:repeat(4,1fr)}
   .doc-grid{grid-template-columns:repeat(2,1fr)}
@@ -503,20 +518,37 @@ footer{background:var(--dark);padding:64px 5% 32px}
   .book-box{display:none}
   .prof-body{grid-template-columns:1fr}
   .prof-sidebar{display:none}
+  .prof-layout{grid-template-columns:1fr}
+  .profile-book-slots{grid-template-columns:repeat(2,1fr)}
+  .profile-date-grid{grid-template-columns:repeat(4,1fr)}
+  .review-summary{flex-direction:column;align-items:flex-start}
+  .bar-rows{width:100%}
   .listings-body{grid-template-columns:1fr}
   .sidebar-filters{display:none}
+  .filters-inner{overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+  .filters-inner::-webkit-scrollbar{height:0}
+  .filter-sort{flex-shrink:0}
   .contact-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .blog-hero-card{grid-template-columns:1fr}
   .mission-grid{grid-template-columns:1fr}
   .team-grid{grid-template-columns:repeat(2,1fr)}
+  .about-stats-grid{grid-template-columns:repeat(2,1fr)}
+  .about-stats-card{padding:24px}
   .classif-grid{grid-template-columns:1fr}
   .lc{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
   .lc-right{grid-column:2;flex-direction:row;justify-content:space-between;align-items:center}
   h1{font-size:2.2rem}
 }
 @media(max-width:480px){
+  .nav-logo{font-size:1.1rem}
+  .nav-actions .btn-dark{padding:8px 10px;font-size:.72rem}
   .spec-grid{grid-template-columns:repeat(2,1fr)}
   .doc-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
+  .profile-date-grid{grid-template-columns:repeat(3,1fr)}
+  .profile-book-slots{grid-template-columns:1fr}
+  .about-stats-grid{grid-template-columns:1fr}
+  .about-stats-card{padding:20px}
+  .pm-item{width:100%}
 }
